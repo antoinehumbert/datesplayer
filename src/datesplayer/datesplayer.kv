@@ -1,0 +1,90 @@
+#:kivy 1.9.0
+#:import _ misc.lang._
+#:import Roulette kivy.garden.roulette.Roulette
+#:import CyclicRoulette kivy.garden.roulette.CyclicRoulette
+#:import MonthCyclicSlot roulette.MonthCyclicSlot
+#:import WeekdayCyclicSlot roulette.WeekdayCyclicSlot
+#:import WeekCyclicRoulette roulette.WeekCyclicRoulette
+#:import ItemstCyclicRoulette roulette.ItemsCyclicRoulette
+#:import get_default_locale misc.lang.get_default_locale
+<DatesPlayer>:
+    orientation: 'vertical'
+    weekday_roulette: weekday
+    week_roulette: week
+    day_of_year_roulette: day_of_year
+    notable_days_roulette: notable_days
+    year_roulette: year
+    month_roulette: month
+    day_roulette: day
+    on_date: self.update_roulettes()
+    BoxLayout:
+        orientation: 'horizontal'
+        CyclicRoulette:
+            id: day_of_year
+            size_hint: 1, 1
+            on_scale: root.redraw_roulette(self)
+            cycle: root.max_day_of_year
+            on_cycle: root.redraw_roulette(self)
+            zero_indexed: False
+            format_str: '{:03d}'
+            selected_value: root.day_of_year
+            on_selected_value: root.day_of_year = self.selected_value
+        ItemsCyclicRoulette:
+            id: notable_days
+            size_hint: 1, 1
+            on_scale: root.redraw_roulette(self)
+            items: root.notable_days
+            on_items: root.redraw_roulette(self)
+            value: root.date
+            on_value: root.date = self.value if self.value is not None else root.get_next_not_notable_day()
+    BoxLayout:
+        orientation: 'horizontal'
+        Label:
+            size_hint: 1, 1
+            text: _('Week')
+        CyclicRoulette:
+            id: weekday
+            size_hint: 1, 1
+            on_scale: root.redraw_roulette(self)
+            cycle: 7
+            zero_indexed: True
+            tick_cls: WeekdayCyclicSlot
+            selected_value: root.weekday
+            on_selected_value: root.weekday = self.selected_value
+        WeekCyclicRoulette:
+            id: week
+            size_hint: 1, 1
+            on_scale: root.redraw_roulette(self)
+            zero_indexed: True
+            format_str: '{:02d}'
+            year_format_str: '{:04d}'
+            date: root.date
+            on_date: root.redraw_roulette(self)
+            on_date: root.date = self.date
+    BoxLayout:
+        orientation: 'horizontal'
+        Roulette:
+            id: year
+            size_hint: 1, 1
+            on_scale: root.redraw_roulette(self)
+            selected_value: root.year
+            on_selected_value: root.year = self.selected_value
+        CyclicRoulette:
+            id: month
+            size_hint: 1, 1
+            on_scale: root.redraw_roulette(self)
+            cycle: 12
+            zero_indexed: False
+            tick_cls: MonthCyclicSlot
+            selected_value: root.month
+            on_selected_value: root.month = self.selected_value
+        CyclicRoulette:
+            id: day
+            size_hint: 1, 1
+            on_scale: root.redraw_roulette(self)
+            cycle: root.max_day_of_month
+            on_cycle: root.redraw_roulette(self)
+            zero_indexed: False
+            format_str: '{:02d}'
+            selected_value: root.day
+            on_selected_value: root.day = self.selected_value

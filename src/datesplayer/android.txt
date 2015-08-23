@@ -1,0 +1,3 @@
+title=Dates Player
+author=Antoine Humbert
+orientation=portrait

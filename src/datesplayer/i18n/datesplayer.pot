@@ -1,0 +1,68 @@
+# Translations template for datesplayer.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the datesplayer
+# project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: datesplayer 1.0\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-08-23 16:46+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.0\n"
+
+#: datesplayer/datesplayer.kv:44
+msgid "Week"
+msgstr ""
+
+#: datesplayer/misc/date.py:341
+msgid "New Year's day"
+msgstr ""
+
+#: datesplayer/misc/date.py:342
+msgid "Easter Monday"
+msgstr ""
+
+#: datesplayer/misc/date.py:343
+msgid "Labor day"
+msgstr ""
+
+#: datesplayer/misc/date.py:344
+msgid "WWII Victory"
+msgstr ""
+
+#: datesplayer/misc/date.py:345
+msgid "Ascension Thursday"
+msgstr ""
+
+#: datesplayer/misc/date.py:346
+msgid "Whit Monday"
+msgstr ""
+
+#: datesplayer/misc/date.py:347
+msgid "National Holiday"
+msgstr ""
+
+#: datesplayer/misc/date.py:348
+msgid "Assumption"
+msgstr ""
+
+#: datesplayer/misc/date.py:349
+msgid "Toussaint"
+msgstr ""
+
+#: datesplayer/misc/date.py:350
+msgid "WWI Armistice"
+msgstr ""
+
+#: datesplayer/misc/date.py:351
+msgid "Christmas"
+msgstr ""
+

@@ -1,0 +1,72 @@
+# French translations for datesplayer.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the datesplayer
+# project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: datesplayer 1.0\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-08-23 16:46+0200\n"
+"PO-Revision-Date: 2015-08-23 16:46+0200\n"
+"Last-Translator: \n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.0\n"
+"Language: fr\n"
+"X-Generator: Poedit 1.8.4\n"
+
+#: datesplayer/datesplayer.kv:44
+msgid "Week"
+msgstr "Semaine"
+
+#: datesplayer/misc/date.py:341
+msgid "New Year's day"
+msgstr "Jour de l'an"
+
+#: datesplayer/misc/date.py:342
+msgid "Easter Monday"
+msgstr "Lundi de Pâques"
+
+#: datesplayer/misc/date.py:343
+msgid "Labor day"
+msgstr "Fête du Travail"
+
+#: datesplayer/misc/date.py:344
+msgid "WWII Victory"
+msgstr "Victoire de la Seconde Guerre Mondiale"
+
+#: datesplayer/misc/date.py:345
+msgid "Ascension Thursday"
+msgstr "Jeudi de l'Ascension"
+
+#: datesplayer/misc/date.py:346
+msgid "Whit Monday"
+msgstr "Lundi de Pentecôte"
+
+#: datesplayer/misc/date.py:347
+msgid "National Holiday"
+msgstr "Fête nationale"
+
+#: datesplayer/misc/date.py:348
+msgid "Assumption"
+msgstr "Assomption"
+
+#: datesplayer/misc/date.py:349
+msgid "Toussaint"
+msgstr "Toussaint"
+
+#: datesplayer/misc/date.py:350
+msgid "WWI Armistice"
+msgstr "Armistice de la Première Guerre Mondiale"
+
+#: datesplayer/misc/date.py:351
+msgid "Christmas"
+msgstr "Noël"
+
+#~ msgid "Semaine"
+#~ msgstr "Semaine"
