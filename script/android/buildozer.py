@@ -36,3 +36,5 @@ if __name__ == '__main__':
         call(['buildozer'] + options + ['android'] + args)
     finally:
         os.chdir(cur_dir)
+    call(['rsync', '-rt', '--include', '/bin', '--include', '/bin/**', '--exclude', '*', os.path.join(DEPLOY_DIR, ''),
+          os.path.dirname(os.path.dirname(SOURCE_DIR))])
