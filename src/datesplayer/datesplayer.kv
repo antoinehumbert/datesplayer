@@ -31,7 +31,7 @@
             on_selected_value: root.day_of_year = self.selected_value
         ItemsCyclicRoulette:
             id: notable_days
-            size_hint: 1, 1
+            size_hint: 2, 1
             on_scale: root.redraw_roulette(self)
             items: root.notable_days
             on_items: root.redraw_roulette(self)
