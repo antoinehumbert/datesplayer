@@ -6,7 +6,7 @@ __copyright__ = ""
 __credits__ = []
 
 __license__ = "MIT"
-__version__ = "$Revision$"
+__version__ = "0.1.0"
 __maintainer__ = "Antoine Humbert"
 __email__ = "antoine.humbert@gmail.com"
 __status__ = "Prototype"
