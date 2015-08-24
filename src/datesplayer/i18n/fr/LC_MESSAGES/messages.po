@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: datesplayer 1.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-23 16:46+0200\n"
-"PO-Revision-Date: 2015-08-23 16:46+0200\n"
+"POT-Creation-Date: 2015-08-24 16:59+0200\n"
+"PO-Revision-Date: 2015-08-24 16:59+0200\n"
 "Last-Translator: \n"
 "Language-Team: fr <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -19,10 +19,6 @@ msgstr ""
 "Generated-By: Babel 2.0\n"
 "Language: fr\n"
 "X-Generator: Poedit 1.8.4\n"
-
-#: datesplayer/datesplayer.kv:44
-msgid "Week"
-msgstr "Semaine"
 
 #: datesplayer/misc/date.py:341
 msgid "New Year's day"
@@ -69,4 +65,7 @@ msgid "Christmas"
 msgstr "Noël"
 
 #~ msgid "Semaine"
+#~ msgstr "Semaine"
+
+#~ msgid "Week"
 #~ msgstr "Semaine"

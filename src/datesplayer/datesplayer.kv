@@ -19,16 +19,6 @@
     on_date: self.update_roulettes()
     BoxLayout:
         orientation: 'horizontal'
-        CyclicRoulette:
-            id: day_of_year
-            size_hint: 1, 1
-            on_scale: root.redraw_roulette(self)
-            cycle: root.max_day_of_year
-            on_cycle: root.redraw_roulette(self)
-            zero_indexed: False
-            format_str: '{:03d}'
-            selected_value: root.day_of_year
-            on_selected_value: root.day_of_year = self.selected_value
         ItemsCyclicRoulette:
             id: notable_days
             size_hint: 2, 1
@@ -39,9 +29,19 @@
             on_value: root.date = self.value if self.value is not None else root.get_next_not_notable_day()
     BoxLayout:
         orientation: 'horizontal'
-        Label:
+#        Label:
+#            size_hint: 1, 1
+#            text: _('Week')
+        CyclicRoulette:
+            id: day_of_year
             size_hint: 1, 1
-            text: _('Week')
+            on_scale: root.redraw_roulette(self)
+            cycle: root.max_day_of_year
+            on_cycle: root.redraw_roulette(self)
+            zero_indexed: False
+            format_str: '{:03d}'
+            selected_value: root.day_of_year
+            on_selected_value: root.day_of_year = self.selected_value
         CyclicRoulette:
             id: weekday
             size_hint: 1, 1
