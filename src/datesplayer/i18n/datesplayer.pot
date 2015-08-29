@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: datesplayer 1.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-24 16:59+0200\n"
+"POT-Creation-Date: 2015-08-29 23:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,34 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.0\n"
+
+#: datesplayer/datesplayer.kv:27
+msgid "Notable days"
+msgstr ""
+
+#: datesplayer/datesplayer.kv:46
+msgid "Day of year"
+msgstr ""
+
+#: datesplayer/datesplayer.kv:63
+msgid "Day of week"
+msgstr ""
+
+#: datesplayer/datesplayer.kv:79
+msgid "Week"
+msgstr ""
+
+#: datesplayer/datesplayer.kv:98
+msgid "Year"
+msgstr ""
+
+#: datesplayer/datesplayer.kv:111
+msgid "Month"
+msgstr ""
+
+#: datesplayer/datesplayer.kv:127
+msgid "Day"
+msgstr ""
 
 #: datesplayer/misc/date.py:341
 msgid "New Year's day"

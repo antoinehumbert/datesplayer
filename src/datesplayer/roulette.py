@@ -2,6 +2,7 @@
 ''' Define a new Slot class for displaying month names'''
 
 import datetime
+from kivy.core.text import Label as CoreLabel
 from kivy.garden.roulette import CyclicSlot, CyclicRoulette
 from kivy.properties import NumericProperty, StringProperty, ObjectProperty, AliasProperty, ListProperty
 from misc.date import Date, DateTime
@@ -13,10 +14,18 @@ class ItemsCyclicSlot(CyclicSlot):
     names = ListProperty([])
 
     def value_str(self, value):
-        real_value = value - (0 if self.zero_indexed else 1)
-        if real_value == 0:
+        if self.zero_indexed and value == 0:
             return '--'
-        return self.names[real_value - 1]
+        return self.names[value - 1]
+
+    def get_label_texture(self, index, **kw):
+        text = self.value_str(self.slot_value(index))
+        label = CoreLabel(text=text, font_size=self.font_size, **kw)
+        label.refresh()
+        if label.width > self.width:
+            label = CoreLabel(text=text, font_size=self.width * self.font_size / label.width)
+            label.refresh()
+        return label.texture
 
 class ItemsCyclicRoulette(CyclicRoulette):
     """ A roulette initialized with (display name, value) items """
@@ -25,50 +34,40 @@ class ItemsCyclicRoulette(CyclicRoulette):
     items = ObjectProperty(None)
     values = ObjectProperty(None)
 
+    def on_size(self, *args):
+        super(ItemsCyclicRoulette, self).on_size(*args)
+        if self.tick:
+            self.tick.size = self.size
+
     def on_items(self, *args):
         if self.items is None:
             self.values = []
-            self.cycle = 1
+            self.cycle = 1 if self.zero_indexed else 0
             if self.tick:
                 self.tick.names = []
         else:
             names, self.values = zip(*self.items)
-            self.cycle = len(self.items) + 1
+            self.cycle = len(self.items) + (1 if self.zero_indexed else 0)
             if self.tick:
                 self.tick.names = names
 
     def get_value(self):
-        real_index = self.selected_value - (0 if self.zero_indexed else 1)
-        if real_index == 0:
-            return None
-        else:
-            return self.values[real_index - 1]
+        if self.values is not None and self.selected_value != 0:
+            return self.values[self.selected_value - 1]
+        return None
 
     def set_value(self, value):
         try:
             index = self.values.index(value)
         except ValueError:
-            self.selected_value = 0 if self.zero_indexed else 1
+            if self.zero_indexed:
+                self.selected_value = 0
+            else:
+                raise
         else:
-            self.selected_value = index + (1 if self.zero_indexed else 2)
+            self.selected_value = index + 1
 
     value = AliasProperty(get_value, set_value, bind=['selected_value'])
-
-
-
-class MonthCyclicSlot(CyclicSlot):
-
-    def value_str(self, value):
-        offset = 1 if self.zero_indexed else 0
-        return DateTime.strptime(str(value + offset), '%m').strftime('%B')
-
-
-
-class WeekdayCyclicSlot(CyclicSlot):
-
-    def value_str(self, value):
-        offset = 0 if self.zero_indexed else -1
-        return DateTime.strptime('200001{}'.format(value + offset), '%Y%W%w').strftime('%A')
 
 
 

@@ -116,6 +116,16 @@ class DatesPlayer(BoxLayout):
 
     notable_days = AliasProperty(get_notable_days, bind=['year'])
 
+    def get_week_days(self):
+        return [(DateTime.strptime('200001{}'.format(value), '%Y%W%w').strftime('%A'), value) for value in range(7)]
+
+    week_days = AliasProperty(get_week_days)
+
+    def get_months(self):
+        return [(DateTime.strptime(str(value), '%m').strftime('%B'), value) for value in range(1, 13)]
+
+    months = AliasProperty(get_months)
+
     def get_next_not_notable_day(self):
         notable_days = [item[1] for item in self.notable_days]
         next_date = self.date
