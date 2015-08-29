@@ -104,7 +104,7 @@ class DatesPlayer(BoxLayout):
     def get_max_day_of_month(self):
         return max_day_of_month(self.date)
 
-    max_day_of_month = AliasProperty(get_max_day_of_month, bind=['month'])
+    max_day_of_month = AliasProperty(get_max_day_of_month, bind=['month', 'year'])
 
     def get_max_day_of_year(self):
         return 337 + (datetime.date(self.year, 3, 1) - datetime.timedelta(days=1)).day
