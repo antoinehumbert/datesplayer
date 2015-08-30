@@ -186,9 +186,24 @@ class _BaseDate(_Base, datetime.date):
         """
         return cls(year, 12, 25)
 
+    def replace_weekday(self, weekday):
+        ''' Return a date with same year and week and given day of week, where Monday is 0 and Synday is 6
+        :param int weekday: The new weekday value (between 0 and 6)
+        '''
+        assert(0 <= weekday <= 6, 'Weekday must be between 0 (Monday) and 6 (Sunday)')
+        return self + datetime.timedelta(days=weekday - self.weekday())
+
+    def day_of_year(self):
+        if self.year < 1900: # cannot use strftime
+            day = self.replace(year=1999).day_of_year() # 1999 is not leap year
+            if self.month > 2: # manage leap year
+                if (datetime.date(self.year, 3, 1) - datetime.timedelta(days=1)) == 29:
+                    day += 1
+            return day
+        return int(self.strftime('%j'))
 
 
-class _BaseDateTime(_Base, datetime.datetime):
+class _BaseDateTime(_BaseDate, datetime.datetime):
     """ Extend the native datetime.datetime class with usefulle methods """
 
     @classmethod

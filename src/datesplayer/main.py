@@ -66,7 +66,7 @@ class DatesPlayer(BoxLayout):
         return self.date.isoweekday() % 7
 
     def set_weekday(self, value):
-        self.date = DateTime.strptime('{}{}{}'.format(self.year, self.date.strftime('%W'), value), '%Y%W%w').date()
+        self.date = self.date.replace_weekday((value - 1) % 7)
 
     weekday = AliasProperty(get_weekday, set_weekday, bind=['date'])
 
@@ -94,7 +94,7 @@ class DatesPlayer(BoxLayout):
     year = AliasProperty(get_year, set_year, bind=['date'])
 
     def get_day_of_year(self):
-        return int(self.date.strftime('%j'))
+        return self.date.day_of_year()
 
     def set_day_of_year(self, value):
         self.date += datetime.timedelta(days=value - self.day_of_year)
